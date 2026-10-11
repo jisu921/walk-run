@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>워크앤런투게더 | 2026.10.25 세종중앙공원</title>
+<meta name="description" content="2026.10.25(일) 13:30~17:00 세종중앙공원 일원 · 3km 건강코스 / 5km 통일코스 · 참가비 10,000원">
+<meta property="og:title" content="워크앤런투게더">
+<meta property="og:description" content="2026.10.25(일) 13:30~17:00 · 세종중앙공원 일원">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=1200&q=70">
+<meta name="theme-color" content="#173f31">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<script src="https://unpkg.com/lucide@0.453.0/dist/umd/lucide.min.js"></script>
+
+<style>
+  :root{
+    --ink:#14231d;
+    --muted:#566a61;
+    --line:#dbe5e0;
+    --bg:#f6f9f8;
+    --paper:#ffffff;
+    --green:#1f6b4f;
+    --deep:#173f31;
+    --sun:#f2b632;
+    --blue:#2f6fb5;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:64px}
+  body{
+    font-family:"Pretendard Variable",Pretendard,-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR",sans-serif;
+    color:var(--ink);background:var(--bg);line-height:1.65;
+    padding-bottom:env(safe-area-inset-bottom);
+    word-break:keep-all;-webkit-text-size-adjust:100%;
+  }
+  a{color:inherit}
+  i[data-lucide],svg.lucide{width:1.15em;height:1.15em;stroke-width:2.2;flex:none}
+  :focus-visible{outline:3px solid var(--sun);outline-offset:2px;border-radius:6px}
+
+  /* top nav */
+  .nav{
+    position:sticky;top:0;z-index:20;background:rgba(246,249,248,.94);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-in{max-width:720px;margin:0 auto;display:flex;gap:4px;overflow-x:auto;padding:10px 16px;scrollbar-width:none}
+  .nav-in::-webkit-scrollbar{display:none}
+  .nav a{
+    white-space:nowrap;text-decoration:none;font-size:14px;font-weight:600;color:var(--muted);
+    padding:6px 12px;border-radius:999px;
+  }
+  .nav a:hover{background:#e7efeb;color:var(--ink)}
+
+  /* hero */
+  .hero{
+    position:relative;color:#fff;overflow:hidden;
+    background:
+      linear-gradient(180deg,rgba(23,63,49,.72) 0%,rgba(23,63,49,.94) 100%),
+      url("https://images.unsplash.com/photo-1552674605-db6ffd4facb5?auto=format&fit=crop&w=1200&q=70") center/cover,
+      var(--deep);
+  }
+  .hero-in{max-width:720px;margin:0 auto;padding:56px 20px 40px}
+  .hero h1{font-size:clamp(40px,12vw,64px);line-height:1.08;font-weight:900;letter-spacing:-.03em}
+  .hero .sub{margin-top:14px;font-size:17px;color:#d6e8df;max-width:30em}
+  .dday{
+    display:inline-flex;align-items:center;gap:8px;margin-top:22px;
+    background:var(--sun);color:#2b2100;font-weight:800;border-radius:999px;padding:7px 16px;font-size:15px;
+  }
+  .route{margin-top:30px}
+  .route svg{width:100%;height:auto;display:block}
+
+  .facts{background:var(--paper);border-bottom:1px solid var(--line)}
+  .facts ul{max-width:720px;margin:0 auto;list-style:none}
+  .facts li{display:flex;gap:14px;padding:16px 20px;border-top:1px solid var(--line)}
+  .facts li:first-child{border-top:0}
+  .facts .ic{color:var(--green);margin-top:3px}
+  .facts b{display:block;font-size:13px;color:var(--muted);font-weight:600}
+  .facts span{font-size:17px;font-weight:700}
+  .facts small{display:block;font-size:14px;font-weight:500;color:var(--muted)}
+  .facts a.map{display:inline-flex;align-items:center;gap:4px;margin-top:6px;font-size:14px;font-weight:700;color:var(--blue);text-decoration:none}
+
+  /* sections */
+  section{max-width:720px;margin:0 auto;padding:44px 20px 8px}
+  h2{font-size:26px;line-height:1.3;font-weight:800;letter-spacing:-.02em;display:flex;align-items:center;gap:10px}
+  h2 .lead{color:var(--green)}
+  h3{font-size:18px;font-weight:800;margin:28px 0 10px}
+  .note{color:var(--muted);font-size:14px}
+
+  /* schedule image */
+  .schedule{
+    margin-top:18px;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--paper);
+  }
+  .schedule img{display:block;width:100%;height:auto}
+  .placeholder{
+    display:none;padding:44px 20px;text-align:center;color:var(--muted);font-size:15px;
+  }
+  .placeholder i{display:block;margin:0 auto 10px;width:32px;height:32px}
+  .schedule.empty img{display:none}
+  .schedule.empty .placeholder{display:block}
+  .timeline{margin-top:18px;border-left:3px solid var(--green);padding-left:16px}
+  .timeline div{padding:6px 0}
+  .timeline b{font-weight:800}
+
+  /* course */
+  .courses{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px}
+  .course{border-radius:14px;padding:20px 16px;color:#fff}
+  .course.a{background:var(--green)}
+  .course.b{background:var(--blue)}
+  .course strong{display:block;font-size:36px;line-height:1;font-weight:900;letter-spacing:-.02em}
+  .course span{display:block;margin-top:8px;font-weight:700}
+  .course small{display:block;margin-top:2px;opacity:.85;font-size:13px}
+
+  dl.info{margin-top:18px;border-top:1px solid var(--line)}
+  dl.info div{display:grid;grid-template-columns:92px 1fr;gap:12px;padding:14px 0;border-bottom:1px solid var(--line)}
+  dl.info dt{font-weight:700;color:var(--muted);font-size:15px}
+  dl.info dd{font-weight:600}
+  dl.info dd small{display:block;color:var(--muted);font-weight:500;font-size:14px}
+
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+  .chip{background:#e4f0ea;color:var(--deep);font-weight:700;font-size:14px;padding:5px 12px;border-radius:999px}
+
+  /* lists */
+  .booths{list-style:none;margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .booths li{
+    display:flex;gap:10px;align-items:flex-start;background:var(--paper);border:1px solid var(--line);
+    border-radius:12px;padding:14px 12px;font-weight:600;font-size:15px;line-height:1.4;
+  }
+  .booths i{color:var(--green);margin-top:1px}
+  .booths small{display:block;color:var(--muted);font-weight:500;font-size:12.5px}
+
+  .stage{margin-top:14px;border-top:1px solid var(--line)}
+  .stage div{padding:14px 0;border-bottom:1px solid var(--line)}
+  .stage b{display:block;font-size:17px}
+  .stage span{color:var(--muted);font-size:15px}
+
+  /* notice */
+  .notices{margin-top:14px;border-top:1px solid var(--line);list-style:none}
+  .notices li{padding:14px 0;border-bottom:1px solid var(--line)}
+  .notices time{display:block;font-size:13px;color:var(--muted);font-weight:600}
+  .notices b{display:block;font-weight:700}
+  .notices p{margin-top:2px;font-size:15px;color:#33463d}
+  .pin{display:inline-block;background:var(--sun);color:#2b2100;font-size:12px;font-weight:800;border-radius:6px;padding:1px 7px;margin-right:6px;vertical-align:1px}
+
+  /* qna */
+  details{border-bottom:1px solid var(--line)}
+  details:first-of-type{border-top:1px solid var(--line);margin-top:14px}
+  summary{
+    list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:12px;
+    padding:16px 0;font-weight:700;
+  }
+  summary::-webkit-details-marker{display:none}
+  summary i{transition:transform .2s;color:var(--muted)}
+  details[open] summary i{transform:rotate(180deg)}
+  details p{padding:0 0 18px;color:#33463d;font-size:15.5px}
+
+  /* footer + sticky cta */
+  footer{max-width:720px;margin:0 auto;padding:48px 20px 24px;color:var(--muted);font-size:14px}
+  footer .row{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;cursor:pointer;
+    font:inherit;font-weight:800;text-decoration:none;border-radius:12px;padding:12px 18px;
+  }
+  .btn.ghost{background:#e4f0ea;color:var(--deep)}
+
+
+  @media (min-width:640px){
+    .hero-in{padding:80px 20px 52px}
+    .booths{grid-template-columns:1fr 1fr 1fr}
+  }
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="페이지 메뉴">
+  <div class="nav-in">
+    <a href="#schedule">일정표</a>
+    <a href="#detail">세부내용</a>
+    <a href="#booth">부스</a>
+    <a href="#stage">무대공연</a>
+    <a href="#notice">공지사항</a>
+    <a href="#qna">Q&amp;A</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-in">
+    <h1>워크앤런<br>투게더</h1>
+    <p class="sub">함께 걷고, 함께 달리는 도시축제. 3km, 5km 두 코스 중 나에게 맞는 길을 골라 보세요.</p>
+    <div class="dday" id="dday"><i data-lucide="calendar-clock"></i><span>D-day 계산 중</span></div>
+
+    <!-- 3km / 5km 코스를 나타내는 장식용 길 -->
+    <div class="route" aria-hidden="true">
+      <svg viewBox="0 0 400 70" fill="none">
+        <path d="M8 50 C 70 50, 70 18, 130 18 S 200 50, 260 50 S 330 18, 392 18" stroke="#fff" stroke-opacity=".35" stroke-width="3" stroke-dasharray="2 9" stroke-linecap="round"/>
+        <path d="M8 50 C 70 50, 70 18, 130 18" stroke="#f2b632" stroke-width="5" stroke-linecap="round"/>
+        <circle cx="8" cy="50" r="7" fill="#fff"/>
+        <circle cx="130" cy="18" r="7" fill="#f2b632"/>
+        <circle cx="392" cy="18" r="7" fill="#fff"/>
+        <text x="130" y="48" fill="#fff" font-size="13" font-weight="700" text-anchor="middle" font-family="Pretendard Variable, sans-serif">3km</text>
+        <text x="392" y="48" fill="#fff" font-size="13" font-weight="700" text-anchor="end" font-family="Pretendard Variable, sans-serif">5km</text>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<div class="facts">
+  <ul>
+    <li>
+      <i class="ic" data-lucide="calendar-days"></i>
+      <div><b>일시</b><span>2026.10.25(일) 13:30~17:00</span></div>
+    </li>
+    <li>
+      <i class="ic" data-lucide="map-pin"></i>
+      <div>
+        <b>장소</b><span>세종중앙공원 일원</span>
+        <small>행사: 도시축제마당 · 코스: 자율주행셔틀전용도로</small>
+        <a class="map" href="https://map.naver.com/p/search/%EC%84%B8%EC%A2%85%EC%A4%91%EC%95%99%EA%B3%B5%EC%9B%90" target="_blank" rel="noopener"><i data-lucide="navigation"></i>지도에서 보기</a>
+      </div>
+    </li>
+    <li>
+      <i class="ic" data-lucide="ticket"></i>
+      <div><b>참가비</b><span>10,000원</span><small>건강한 사람 누구나 참가할 수 있어요</small></div>
+    </li>
+  </ul>
+</div>
+
+<main>
+
+<section id="schedule">
+  <h2><i class="lead" data-lucide="clock"></i>일정표</h2>
+  <div class="schedule" id="scheduleBox">
+    <!-- 일정표 사진: 같은 폴더에 schedule.jpg 로 올리면 자동으로 나타납니다 -->
+    <img src="schedule.jpg" alt="워크앤런투게더 일정표" onerror="document.getElementById('scheduleBox').classList.add('empty')">
+    <div class="placeholder"><i data-lucide="image"></i>일정표 사진을 준비 중이에요.</div>
+  </div>
+  <div class="timeline">
+    <div><b>13:30</b> 현장 배치 및 행사 시작 (부스 운영)</div>
+    <div><b>14:25</b> 공연 (성악팀, 조이어린이합창단, 한울림프렌즈합창단)</div>
+    <div><b>15:25</b> 대회 (5km·3km A/B그룹 배치, 5km A그룹 출발)</div>
+    <div><b>16:25</b> 폐회식 · 경품추첨</div>
+  </div>
+  <p class="note" style="margin-top:10px">걷기·달리기 시간은 중간 참여가 어려워요. 부스는 언제든 들러 주세요.</p>
+</section>
+
+<section id="detail">
+  <h2><i class="lead" data-lucide="clipboard-list"></i>세부내용</h2>
+
+  <div class="courses">
+    <div class="course a"><strong>3km</strong><span>건강코스</span><small>가볍게 걷고 달리기</small></div>
+    <div class="course b"><strong>5km</strong><span>통일코스</span><small>조금 더 멀리, 함께</small></div>
+  </div>
+
+  <dl class="info">
+    <div><dt>참가조건</dt><dd>건강한 사람 누구나</dd></div>
+    <div><dt>참가비</dt><dd>10,000원</dd></div>
+    <div>
+      <dt>참가신청</dt>
+      <dd>
+        온라인: 구글폼 사전접수
+        <small>오프라인: 행사 당일 현장접수</small>
+      </dd>
+    </div>
+    <div>
+      <dt>주요행사</dt>
+      <dd>
+        <div class="chips">
+          <span class="chip">개회식</span>
+          <span class="chip">주무대 공연</span>
+          <span class="chip">체험부스</span>
+          <span class="chip">걷기 &amp; 달리기</span>
+          <span class="chip">폐회식·경품추첨</span>
+        </div>
+        <small style="margin-top:10px">체험부스는 건강존, 통일존, 놀이존 등으로 운영돼요.</small>
+      </dd>
+    </div>
+  </dl>
+</section>
+
+<section id="booth">
+  <h2><i class="lead" data-lucide="tent"></i>참여부스</h2>
+  <ul class="booths">
+    <li><i data-lucide="gamepad-2"></i><span>참여형 게임<small>다음세대 주관</small></span></li>
+    <li><i data-lucide="camera"></i><span>네컷사진 부스</span></li>
+    <li><i data-lucide="message-circle-question"></i><span>북한말 맞추기</span></li>
+    <li><i data-lucide="palette"></i><span>타투 및 페이스페인팅</span></li>
+    <li><i data-lucide="shield-check"></i><span>안전관련 교육</span></li>
+    <li><i data-lucide="shirt"></i><span>베트남 문화체험<small>전통의상 착용</small></span></li>
+    <li><i data-lucide="heart-pulse"></i><span>몸사랑</span></li>
+  </ul>
+</section>
+
+<section id="stage">
+  <h2><i class="lead" data-lucide="music"></i>무대공연</h2>
+  <div class="stage">
+    <div><b>성악팀</b><span>윤형진, 박근영, 이호, 김민웅</span></div>
+    <div><b>한울림팀</b><span>북한이탈주민으로 구성된 팀</span></div>
+    <div><b>조이어린이합창단</b><span>어린이 합창</span></div>
+  </div>
+</section>
+
+<section id="notice">
+  <h2><i class="lead" data-lucide="megaphone"></i>공지사항</h2>
+  <!-- 공지 추가: 아래 li 블록을 복사해서 맨 위에 붙여 넣으세요 -->
+  <ul class="notices">
+    <li>
+      <time>2026.10.11</time>
+      <b><span class="pin">안내</span>행사 시간은 13:30~17:00입니다</b>
+      <p>걷기와 달리기는 15:30~16:30에 진행해요. 부스는 행사 시간 중 자유롭게 참여할 수 있어요.</p>
+    </li>
+    <li>
+      <time>2026.10.11</time>
+      <b>참가신청은 사전접수와 현장접수로 가능해요</b>
+      <p>사전접수는 구글폼, 현장접수는 행사 당일 현장에서 받습니다.</p>
+    </li>
+  </ul>
+</section>
+
+<section id="qna">
+  <h2><i class="lead" data-lucide="circle-help"></i>Q&amp;A</h2>
+
+  <details>
+    <summary>강아지도 올 수 있나요?<i data-lucide="chevron-down"></i></summary>
+    <p>네, 함께 올 수 있어요. 다만 달릴 때는 펫카트가 필요합니다.</p>
+  </details>
+  <details>
+    <summary>연령 제한이 있나요?<i data-lucide="chevron-down"></i></summary>
+    <p>연령 제한은 없어요. 건강에 이상이 없고 걷거나 달리는 데 문제가 없으면 참여할 수 있습니다. 어린 아이는 유모차와 함께 걸으시면 돼요.</p>
+  </details>
+  <details>
+    <summary>꼭 처음부터 끝까지 참여해야 하나요? 중간에 참여해도 되나요?<i data-lucide="chevron-down"></i></summary>
+    <p>부스는 중간에 참여해도 괜찮아요. 걷기·달리기는 15:30~16:30에 진행되어 중간 참여가 어렵습니다. 행사는 13:30~17:00까지예요.</p>
+  </details>
+  <details>
+    <summary>외부 음식을 가져와서 먹어도 되나요?<i data-lucide="chevron-down"></i></summary>
+    <p>가져오셔도 괜찮아요. 다만 가져오신 음식과 쓰레기는 되도록 다시 가져가 주세요.</p>
+  </details>
+</section>
+
+</main>
+
+<footer>
+  <p>워크앤런투게더 · 2026.10.25(일) · 세종중앙공원 일원</p>
+  <div class="row">
+    <button class="btn ghost" id="shareBtn" type="button"><i data-lucide="share-2"></i>친구에게 공유</button>
+  </div>
+</footer>
+
+<script>
+  const CONFIG = { eventStart: "2026-10-25T13:30:00+09:00" };
+
+  lucide.createIcons();
+
+  // D-day
+  (function(){
+    const el = document.querySelector("#dday span");
+    const now = new Date();
+    const start = new Date(CONFIG.eventStart);
+    const day = d => new Date(d.getFullYear(), d.getMonth(), d.getDate());
+    const diff = Math.round((day(start) - day(now)) / 86400000);
+    el.textContent = diff > 0 ? "행사까지 D-" + diff : diff === 0 ? "오늘 열려요!" : "행사가 종료되었어요";
+  })();
+
+  // 공유
+  document.getElementById("shareBtn").addEventListener("click", async () => {
+    const data = { title: "워크앤런투게더", text: "2026.10.25(일) 13:30~17:00 세종중앙공원", url: location.href };
+    try {
+      if (navigator.share) { await navigator.share(data); }
+      else { await navigator.clipboard.writeText(location.href); alert("주소를 복사했어요."); }
+    } catch (e) {}
+  });
+</script>
+</body>
+</html>
